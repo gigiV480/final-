@@ -41,7 +41,6 @@ class MainActivity2 : AppCompatActivity() {
             }
         }
             yes.setOnClickListener {
-                Toast.makeText(this, counter.toString()+"   "+counter.toInt().toString(), Toast.LENGTH_SHORT).show()
 
                 if (operator1.text == "+") {
                     counter += 0.4
@@ -79,7 +78,7 @@ class MainActivity2 : AppCompatActivity() {
 
                     } else {
                         Toast.makeText(this, "failed", Toast.LENGTH_SHORT).show()
-                        val intent = Intent(this, MainActivity::class.java)
+                        val intent = Intent(this, MainActivity3::class.java)
                         intent.putExtra("saxeli","GAME OVER")
                         intent.putExtra("score", score1)
                         startActivity(intent)
@@ -123,7 +122,7 @@ class MainActivity2 : AppCompatActivity() {
 
                     } else {
                         Toast.makeText(this, "failed", Toast.LENGTH_SHORT).show()
-                        val intent = Intent(this, MainActivity::class.java)
+                        val intent = Intent(this, MainActivity3::class.java)
                         intent.putExtra("saxeli","GAME OVER")
                         intent.putExtra("score", score1)
                         startActivity(intent)
@@ -133,7 +132,6 @@ class MainActivity2 : AppCompatActivity() {
                 }
             }
             no.setOnClickListener {
-                Toast.makeText(this, counter.toString()+"  "+counter.toInt().toString(), Toast.LENGTH_SHORT).show()
 
                 if (operator1.text == "+") {
                     counter += 0.4
@@ -152,11 +150,11 @@ class MainActivity2 : AppCompatActivity() {
 
                     if (num1 + num2 == num3) {
                         Toast.makeText(this, "failed", Toast.LENGTH_SHORT).show()
-                        val intent = Intent(this@MainActivity2, MainActivity::class.java)
+                        val intent = Intent(this, MainActivity3::class.java)
                         intent.putExtra("saxeli","GAME OVER")
-                        timer.cancel()
                         intent.putExtra("score", score1)
                         startActivity(intent)
+                        finish()
 
                     } else {
                         var random1 = Random.nextInt(1, 3)
@@ -199,7 +197,7 @@ class MainActivity2 : AppCompatActivity() {
 
                     if (num1 - num2 == num3) {
                         Toast.makeText(this, "failed", Toast.LENGTH_SHORT).show()
-                        val intent = Intent(this, MainActivity::class.java)
+                        val intent = Intent(this, MainActivity3::class.java)
                         timer.cancel()
                         intent.putExtra("saxeli","GAME OVER")
                         intent.putExtra("score", score1)
@@ -238,7 +236,7 @@ class MainActivity2 : AppCompatActivity() {
         Toast.makeText(this, "time out!", Toast.LENGTH_SHORT).show()
         score=findViewById(R.id.score)
         var score1=score.text.toString()
-        val intent = Intent(this,MainActivity::class.java)
+        val intent = Intent(this,MainActivity3::class.java)
         intent.putExtra("saxeli","game over")
         intent.putExtra("score",score1.toInt())
         startActivity(intent )
